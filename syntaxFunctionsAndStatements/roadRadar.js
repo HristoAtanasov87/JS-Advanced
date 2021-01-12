@@ -1,44 +1,38 @@
-function solve(input) {
-    let [speed, area] = input;
+function solve(speed, area) {
+    let limit = 0;
+    let speeding = 0;
+    let status = "";
 
     switch (area) {
         case "motorway":
-            if (speed > 130 && speed <= 150) {
-                console.log("speeding");
-            } else if (speed > 150 && speed <= 170) {
-                console.log("excessive speeding");
-            } else if (speed > 170) {
-                console.log("reckless driving");
-            }
+            limit = 130;
             break;
         case "interstate":
-            if (speed > 90 && speed <= 110) {
-                console.log("speeding");
-            } else if (speed > 110 && speed <= 130) {
-                console.log("excessive speeding");
-            } else if (speed > 130) {
-                console.log("reckless driving");
-            }
+            limit = 90;
             break;
         case "city":
-            if (speed > 50 && speed <= 70) {
-                console.log("speeding");
-            } else if (speed > 70 && speed <= 90) {
-                console.log("excessive speeding");
-            } else if (speed > 90) {
-                console.log("reckless driving");
-            }
+            limit = 50;
             break;
         case "residential":
-            if (speed > 20 && speed <= 40) {
-                console.log("speeding");
-            } else if (speed > 40 && speed <= 60) {
-                console.log("excessive speeding");
-            } else if (speed > 60) {
-                console.log("reckless driving");
-            }
+            limit = 20;
             break;
     }
+
+    speeding = limit - speed;
+
+    if (speeding >= 0) {
+        return `Driving ${speed} km/h in a ${limit} zone`;
+    }
+
+    if (Math.abs(speeding) <= 20) {
+        status = "speeding";
+    } else if (Math.abs(speeding) <= 40) {
+        status = "excessive speeding";
+    } else {
+        status = "reckless driving";
+    }
+
+    console.log(`The speed is ${Math.abs(speeding)} km/h faster than the allowed speed of ${limit} - ${status}`);
 }
 
-solve([200, 'motorway'])
+solve(200, 'motorway');

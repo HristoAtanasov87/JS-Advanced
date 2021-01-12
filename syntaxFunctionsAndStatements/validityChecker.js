@@ -26,6 +26,8 @@ function solve(input) {
     } else {
         console.log(`{${x1}, ${y1}} to {${x2}, ${y2}} is valid`);
     }
+
+    // Number.isInteger() - проверява дали е цяло число. връща true или false
 }
 
 solve([2, 1, -1, 1]);

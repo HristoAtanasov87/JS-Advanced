@@ -1,29 +1,31 @@
-function solve(input) {
-    let actions = {
-        chop: (number) => {
-            return number / 2;
-        },
-        dice: (number) => {
-            return Math.sqrt(number);
-        },
-        spice: (number) => {
-            return number + 1;
-        },
-        bake: (number) => {
-            return number * 3;
-        },
-        fillet: (number) => {
-            return number - (number * 0.2);
+function solve(num, com1, com2, com3, com4, com5) {
+    num = Number(num);
+    const actions = [com1, com2, com3, com4, com5];
+
+    for (let i of actions) {
+        switch (i) {
+            case "chop":
+                num = num / 2;
+                console.log(num);
+                break;
+            case "dice":
+                num = Math.sqrt(num);
+                console.log(num);
+                break;
+            case "spice":
+                num = num + 1;
+                console.log(num);
+                break;
+            case "bake":
+                num = num * 3;
+                console.log(num);
+                break;
+            case "fillet":
+                num = num - num * 0.2;
+                console.log(num);
+                break;
         }
-    }
-
-    let number = Number(input.shift());
-
-    for (let element of input) {
-        let result = actions[element];
-        number = result(number);
-        console.log(number);
     }
 }
 
-solve(['9', 'dice', 'spice', 'chop', 'bake', 'fillet']);
+solve('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
