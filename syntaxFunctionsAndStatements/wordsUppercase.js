@@ -1,5 +1,5 @@
 function solve(text) {
-    let pattern = /[A-Za-z]+/g;
+    let pattern = /[A-Za-z\d]+/g;
     let toPrint = [];
 
     let result = text.match(pattern);
