@@ -40,7 +40,8 @@ function solution() {
             return;
         }
 
-        if (ev.target.textContent === 'Send') {
+        if (ev.target.textContent === 'Send') { // вместо да триеш бутоните направи си просто нови елементи и ги добави на секшъните. 
+            //addEventListener('click', () => sendGift(name, gift)) - евент параметъра влиза във първите скоби и така не го ползваме като викаме функцията sendGift, а и подаваме параметри и те са директна референция към елементите които ни трябват да изтрием и преместим.
             let toMove = ev.target.parentNode;
             sentGiftsSection.children[1].appendChild(toMove);
             let index = toSort.indexOf(toMove);
